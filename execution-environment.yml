@@ -1,0 +1,21 @@
+---
+version: 1
+
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:latest'
+
+ansible_config: 'ansible.cfg'
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  prepend: |
+    RUN pip3 install ansible-runner
+    RUN curl -sSL https://sdk.cloud.google.com | bash
+    ENV PATH $PATH:/root/google-cloud-sdk/bin
+  # append:
+  #  - RUN echo This is a post-install command!
+  #  - RUN ls -la /etc

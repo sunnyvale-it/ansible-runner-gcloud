@@ -1,0 +1,5 @@
+---
+collections:
+  # from galaxy
+  - google.cloud
+  - awx.awx
