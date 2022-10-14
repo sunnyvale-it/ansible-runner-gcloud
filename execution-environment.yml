@@ -13,7 +13,6 @@ dependencies:
 
 additional_build_steps:
   prepend: |
-    RUN pip3 install ansible-runner
     RUN curl -sSL https://sdk.cloud.google.com | bash
     ENV PATH $PATH:/root/google-cloud-sdk/bin
   # append:
