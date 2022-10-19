@@ -18,5 +18,6 @@ additional_build_steps:
   - COPY ./ansible.cfg /home/runner/ansible.cfg
   - COPY ./scripts /home/runner/scripts/
   append:
-  - RUN curl -sSL https://sdk.cloud.google.com | bash; true
+  - RUN curl -sSL https://sdk.cloud.google.com | bash
   - ENV PATH $PATH:/home/runner/google-cloud-sdk/bin
+  - RUN $(gcloud info --format="value(basic.python_location)") -m pip install numpy
