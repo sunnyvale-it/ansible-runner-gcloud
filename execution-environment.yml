@@ -15,10 +15,10 @@ dependencies:
 additional_build_steps:
   prepend:
   - COPY ./group_vars /home/runner/group_vars/
-  - COPY ./ansible.cfg /home/runner/ansible.cfg
+  - COPY ./ansible.cfg /etc/ansible/ansible.cfg
   - COPY ./scripts /home/runner/scripts/
   append:
   - RUN curl -sSL https://sdk.cloud.google.com | bash
   - ENV PATH $PATH:/home/runner/google-cloud-sdk/bin
   - RUN $(gcloud info --format="value(basic.python_location)") -m pip install numpy
-  - WORKDIR /home/runner
+  - ENV ANSIBLE_CONFIG /etc/ansible/ansible.cfg
