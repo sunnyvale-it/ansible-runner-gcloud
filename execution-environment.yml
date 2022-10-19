@@ -14,7 +14,6 @@ dependencies:
 
 additional_build_steps:
   prepend:
-  - COPY ./group_vars /home/runner/group_vars/
   - COPY ./ansible.cfg /etc/ansible/ansible.cfg
   - COPY ./scripts /home/runner/scripts/
   append:

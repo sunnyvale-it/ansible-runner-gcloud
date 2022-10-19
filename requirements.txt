@@ -1,1 +1,2 @@
 ansible-runner
+ansible-core==2.13.3
