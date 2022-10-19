@@ -1,1 +1,2 @@
 python39
+python3-numpy

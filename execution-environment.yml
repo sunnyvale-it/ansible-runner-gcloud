@@ -11,7 +11,12 @@ dependencies:
   python: requirements.txt
   system: bindep.txt
 
+
 additional_build_steps:
+  prepend:
+  - COPY ./group_vars /home/runner/group_vars/
+  - COPY ./ansible.cfg /home/runner/ansible.cfg
+  - COPY ./scripts /home/runner/scripts/
   append:
-   - RUN curl -sSL https://sdk.cloud.google.com | bash; true
-   - ENV PATH $PATH:/home/runner/google-cloud-sdk/bin
+  - RUN curl -sSL https://sdk.cloud.google.com | bash; true
+  - ENV PATH $PATH:/home/runner/google-cloud-sdk/bin
