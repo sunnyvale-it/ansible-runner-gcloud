@@ -17,10 +17,7 @@ for ssh_arg in "${@: 1: $# -3}" ; do
                 opts+="${ssh_arg} "
         fi
 done
-env
 
-#export service_account_file=$(pwd)/$(grep service_account_file misc/inventory.gcp.yml | cut -d : -f 2 | sed -e 's/ //g' | sed -e 's/\n//g')
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="${GCE_CREDENTIALS_FILE_PATH}"
-#echo $CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE
 gcloud compute ssh $opts "ansible@${host}" -- -C "${cmd}"

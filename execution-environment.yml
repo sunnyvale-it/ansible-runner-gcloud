@@ -21,3 +21,4 @@ additional_build_steps:
   - RUN curl -sSL https://sdk.cloud.google.com | bash
   - ENV PATH $PATH:/home/runner/google-cloud-sdk/bin
   - RUN $(gcloud info --format="value(basic.python_location)") -m pip install numpy
+  - WORKDIR /home/runner

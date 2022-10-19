@@ -21,8 +21,6 @@ done
 # Remove [] around our host, as gcloud scp doesn't understand this syntax
 cmd=`echo "${cmd}" | tr -d []`
 
-#export service_account_file=$(pwd)/$(grep service_account_file misc/inventory.gcp.yml | cut -d : -f 2 | sed -e 's/ //g' | sed -e 's/\n//g')
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="${GCE_CREDENTIALS_FILE_PATH}"
-#echo $CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE
 gcloud compute scp $opts "ansible@${host}" "${cmd}"
