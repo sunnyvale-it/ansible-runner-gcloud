@@ -19,5 +19,6 @@ for ssh_arg in "${@: 1: $# -3}" ; do
 done
 
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
+export ANSIBLE_PARAMIKO_PTY=1
 export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="${GCE_CREDENTIALS_FILE_PATH}"
 gcloud compute ssh $opts "ansible@${host}" -- -C "${cmd}"
