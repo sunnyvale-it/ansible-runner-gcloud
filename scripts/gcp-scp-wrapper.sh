@@ -1,6 +1,7 @@
 #!/bin/bash
 # This is a wrapper script allowing to use GCP's IAP option to connect
 # to our servers.
+#set -x
 # Ansible passes a large number of SSH parameters along with the hostname as the
 # second to last argument and the command as the last. We will pop the last two
 # arguments off of the list and then pass all of the other SSH flags through
@@ -21,10 +22,13 @@ done
 # Remove [] around our host, as gcloud scp doesn't understand this syntax
 cmd=$(echo "${cmd}" | tr -d "[]")
 
-
-
-
-
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
+#export ANSIBLE_PARAMIKO_PTY=1
 export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="${GCE_CREDENTIALS_FILE_PATH}"
-su - ansible -c "gcloud compute scp ${opts[@]} ansible@${host} ${cmd}"
+
+#env
+
+exec gcloud compute scp --scp-flag='-t -C -A' "${opts[@]}" "${host}" "ansible@${cmd}"
+exit 0
+
+
