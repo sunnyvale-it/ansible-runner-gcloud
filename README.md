@@ -1,4 +1,4 @@
-# Ansible runner
+# GCloud Ansible runner image
 
 ## Purpose
 

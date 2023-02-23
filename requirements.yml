@@ -5,3 +5,4 @@ collections:
   - awx.awx
   - community.docker
   - ansible.windows
+  - community.general
