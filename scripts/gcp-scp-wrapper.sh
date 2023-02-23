@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is a wrapper script allowing to use GCP's IAP option to connect
 # to our servers.
-#set -x
+set -x
 # Ansible passes a large number of SSH parameters along with the hostname as the
 # second to last argument and the command as the last. We will pop the last two
 # arguments off of the list and then pass all of the other SSH flags through
