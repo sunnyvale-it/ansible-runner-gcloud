@@ -1,5 +1,7 @@
 # GCloud Ansible runner image
 
+![](img/1.jpg)
+
 ## Purpose
 
 This repo is meant to provide all the required artifacts to build an Ansible runner OCI compliant container image, to be used as an Execution Environment in Ansible AWX or Tower, with gcloud tool bundled in it.
